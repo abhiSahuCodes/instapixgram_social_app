@@ -4,7 +4,7 @@ import "./globals.css";
 const App = () => {
   return (
     <div>
-      App
+      <h1 className="font-bold text-2xl">App</h1>
     </div>
   )
 }
