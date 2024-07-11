@@ -1,11 +1,12 @@
-import React from 'react'
+import { Button } from "@/components/ui/button";
 
 const SignupForm = () => {
   return (
     <div>
-      Signup
+      <Button>Click me</Button>
+      <h1>Hello</h1>
     </div>
-  )
-}
+  );
+};
 
-export default SignupForm
+export default SignupForm;
