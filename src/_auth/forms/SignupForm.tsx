@@ -37,8 +37,8 @@ const SignupForm = () => {
   return (
     <div className="flex-center flex-col">
       <Form {...form}>
-        <div className="sm:w-420 flex-center flex-col">
-          <img src="/assets/images/logo.svg" alt="" />
+        <div className="w-[220px] flex-start flex-col">
+          <img src="/assets/images/logo.png" alt="" />
         </div>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
