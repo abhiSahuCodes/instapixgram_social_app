@@ -8,13 +8,13 @@ const AuthLayout = () => {
         <Navigate to="/" />
       ) : (
         <div className="flex items-center justify-between">
-          <section className="h-screen w-1/2 flex justify-center items-center">
+          <section className="h-screen lg:w-full xl:w-1/2 sm:w-full flex justify-center items-center">
             <Outlet />
           </section>
             <img
-            src="./assets/images/side-img.svg"
+            src="/assets/images/side-img.svg"
             alt="logo"
-            className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"
+            className="hidden xl:block h-screen xl:w-1/2 object-cover bg-no-repeat"
           />
           
         </div>
