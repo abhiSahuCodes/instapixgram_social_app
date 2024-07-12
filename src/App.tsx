@@ -9,7 +9,7 @@ import AuthLayout from "./_auth/AuthLayout";
 const App = () => {
   let publicRoutes = [
     {
-      path: "/auth",
+      path: "/",
       element: <AuthLayout />,
       children: [
         {
