@@ -7,8 +7,8 @@ const AuthLayout = () => {
       {isAuth ? (
         <Navigate to="/" />
       ) : (
-        <div className="flex items-center justify-between">
-          <section className="h-screen lg:w-full xl:w-1/2 sm:w-full flex justify-center items-center">
+        <div className="flex items-center justify-between sm:mx-auto vsm:mx-auto">
+          <section className="h-screen xl:w-1/2 w-full flex justify-center items-center">
             <Outlet />
           </section>
             <img
