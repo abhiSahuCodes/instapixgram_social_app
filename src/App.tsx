@@ -5,6 +5,7 @@ import SignupForm from "./_auth/forms/SignupForm";
 import RootLayout from "./_root/RootLayout";
 import { Home } from "./_root/pages";
 import AuthLayout from "./_auth/AuthLayout";
+import { Toaster } from "./components/ui/toaster";
 
 const App = () => {
   let publicRoutes = [
@@ -39,7 +40,12 @@ const App = () => {
 
   const router = createBrowserRouter([...publicRoutes, ...protectedRoutes]);
   return (
-    <RouterProvider router={router} />
+    <>
+      <main className="flex h-screen">
+        <RouterProvider router={router} />
+        <Toaster />
+      </main>
+    </>
   );
 };
 
