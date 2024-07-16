@@ -15,13 +15,23 @@ import {
 import { Input } from "@/components/ui/input";
 import { SignupValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { Link } from "react-router-dom";
-import { createUserAccount } from "@/lib/appwrite/api";
+import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
+import {
+  useCreateUserAccount,
+  useSignInAccount,
+} from "@/lib/react-query/queries";
 
 const SignupForm = () => {
-  const {toast} = useToast();
-  const isLoading = false;
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } =
+    useCreateUserAccount();
+
+  const { mutateAsync: signInAccount, isLoading: isSigningIn } =
+    useSignInAccount();
+
+  // Defining form
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),
     defaultValues: {
@@ -36,8 +46,21 @@ const SignupForm = () => {
     const newUser = await createUserAccount(values);
 
     if (!newUser) {
-      toast({ title: "Sign up failed. Please try again.", });
-      
+      toast({ title: "Sign up failed. Please try again." });
+
+      return;
+    }
+
+    const session = await signInAccount({
+      email: values.email,
+      password: values.password,
+    });
+
+    if (!session) {
+      toast({ title: "Something went wrong. Please login your new account" });
+
+      navigate("/sign-in");
+
       return;
     }
   }

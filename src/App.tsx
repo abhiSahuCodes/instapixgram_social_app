@@ -41,10 +41,8 @@ const App = () => {
   const router = createBrowserRouter([...publicRoutes, ...protectedRoutes]);
   return (
     <>
-      <main className="flex h-screen">
-        <RouterProvider router={router} />
-        <Toaster />
-      </main>
+      <RouterProvider router={router} />
+      <Toaster />
     </>
   );
 };
