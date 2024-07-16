@@ -21,14 +21,16 @@ import {
   useCreateUserAccount,
   useSignInAccount,
 } from "@/lib/react-query/queries";
+import { useUserContext } from "@/context/AuthContext";
 
 const SignupForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { mutateAsync: createUserAccount, isLoading: isCreatingUser } =
+  const { checkAuthUser, isLoading} = useUserContext();
+  const { mutateAsync: createUserAccount} =
     useCreateUserAccount();
 
-  const { mutateAsync: signInAccount, isLoading: isSigningIn } =
+  const { mutateAsync: signInAccount} =
     useSignInAccount();
 
   // Defining form
@@ -60,6 +62,18 @@ const SignupForm = () => {
       toast({ title: "Something went wrong. Please login your new account" });
 
       navigate("/sign-in");
+
+      return;
+    }
+
+    const isLoggedIn = await checkAuthUser();
+
+    if (isLoggedIn) {
+      form.reset();
+
+      navigate("/");
+    } else {
+      toast({ title: "Login failed. Please try again." });
 
       return;
     }

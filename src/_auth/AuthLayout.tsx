@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import { Navigate, Outlet } from "react-router-dom";
 
 const AuthLayout = () => {
@@ -11,14 +12,14 @@ const AuthLayout = () => {
           <section className="h-screen xl:w-1/2 w-full flex justify-center items-center">
             <Outlet />
           </section>
-            <img
+          <img
             src="/assets/images/side-img.svg"
             alt="logo"
             className="hidden xl:block h-screen xl:w-1/2 object-cover bg-no-repeat"
           />
-          
         </div>
       )}
+      <Toaster />
     </>
   );
 };
