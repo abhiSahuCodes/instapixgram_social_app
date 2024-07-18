@@ -99,3 +99,26 @@ export async function signOutAccount() {
     console.log(error);
   }
 }
+
+// Get users
+export async function getUsers(limit?: number) {
+  const queries: any[] = [Query.orderDesc("$createdAt")];
+
+  if (limit) {
+    queries.push(Query.limit(limit));
+  }
+
+  try {
+    const users = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      queries
+    );
+
+    if (!users) throw Error;
+
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
