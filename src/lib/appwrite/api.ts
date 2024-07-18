@@ -100,6 +100,25 @@ export async function signOutAccount() {
   }
 }
 
+// Get post by ID
+export async function getPostById(postId?: string) {
+  if (!postId) throw Error;
+
+  try {
+    const post = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.postsCollectionId,
+      postId
+    );
+
+    if (!post) throw Error;
+
+    return post;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // Get users
 export async function getUsers(limit?: number) {
   const queries: any[] = [Query.orderDesc("$createdAt")];
@@ -122,3 +141,5 @@ export async function getUsers(limit?: number) {
     console.log(error);
   }
 }
+
+

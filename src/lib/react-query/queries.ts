@@ -6,7 +6,7 @@ import {
   // useQueryClient,
   // useInfiniteQuery,
 } from "@tanstack/react-query";
-import { createUserAccount, getUsers, signInAccount, signOutAccount } from "../appwrite/api";
+import { createUserAccount, getPostById, getUsers, signInAccount, signOutAccount } from "../appwrite/api";
 import { QUERY_KEYS } from "./queryKeys";
 
 export const useCreateUserAccount = () => {
@@ -25,6 +25,16 @@ export const useSignInAccount = () => {
 export const useSignOutAccount = () => {
   return useMutation({
     mutationFn: signOutAccount,
+  });
+};
+
+
+// Post queries
+export const useGetPostById = (postId?: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_POST_BY_ID, postId],
+    queryFn: () => getPostById(postId),
+    enabled: !!postId,
   });
 };
 
