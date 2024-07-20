@@ -8,11 +8,12 @@ import {
 } from "react-router-dom";
 
 import { Button } from "@/components/ui";
-import { LikedPosts } from "@/_root/pages";
+// import { LikedPosts } from "@/_root/pages";
 import { useUserContext } from "@/context/AuthContext";
 import { useGetUserById } from "@/lib/react-query/queries";
 import Loader from "@/components/shared/Loader";
 import GridPostList from "@/components/shared/GridPostList";
+import LikedPosts from "./LikedPosts";
 
 interface StabBlockProps {
   value: string | number;
