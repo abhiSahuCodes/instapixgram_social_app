@@ -15,5 +15,30 @@ A photo sharing social media application that can be used to share images in the
 - Create Personal Feeds
 - Responsive for mobile devices
 
+## Tech
+
+- React
+- TypeScript
+- Tailwind CSS
+- Appwrite
+
+## Installation
+To deploy this project:
+
+```bash
+  npm install
+```
+To run in dev mode / locally
+
+```bash
+  npm run dev
+```
+
+To make production build
+
+```bash
+  npm run build
+```
+
 
 
