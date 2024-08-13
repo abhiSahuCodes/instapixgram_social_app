@@ -4,6 +4,8 @@
 
 A photo sharing social media application that can be used to share images in the personal feed that can be seen by people the user follow.
 
+[DEMO](https://instapixgram.vercel.app/)
+
 ## Features
 
 - Sign Up / Sign In / Logout
@@ -12,7 +14,7 @@ A photo sharing social media application that can be used to share images in the
 - Find and follow people
 - Like feeds
 - Save feeds in personal account
-- Create Personal Feeds
+- Create Personal Posts with caption, picture, location, and tags.
 - Responsive for mobile devices
 
 ## Tech
