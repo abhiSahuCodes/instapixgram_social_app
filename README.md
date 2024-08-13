@@ -1,4 +1,4 @@
-![Logo](./public/assets/images/logo.png)
+![Logo](./public/assets/images/logo-readme.png)
 
 ![App Screenshot](./public/assets/images/Instapixgram.png)
 
